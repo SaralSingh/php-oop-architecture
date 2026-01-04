@@ -10,7 +10,7 @@ return [
     },
     '/teachers'=>function()
     {
-        (new TeacherController)->index();
+        (new TeacherController())->index();
     }
     ,
     '404' => function()
