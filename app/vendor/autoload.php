@@ -1,10 +1,13 @@
 <?php
 $root = dirname(__DIR__);
 spl_autoload_register(function ($class) use ($root) {
+    
     $paths = [
         $root . '/Contracts/',
         $root . '/Services/',
         $root . '/DataProviders/',
+        $root . '/Models/',
+        $root . '/Controllers/',
     ];
 
     foreach ($paths as $path) {

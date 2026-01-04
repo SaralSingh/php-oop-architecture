@@ -10,4 +10,9 @@ class School
         }
         echo '</ul>';
     }
+
+    public function getNames()
+    {
+        
+    }
 }

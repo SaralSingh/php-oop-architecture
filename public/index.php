@@ -1,17 +1,43 @@
 <?php
-require dirname(__DIR__). '/app/vendor/autoload.php';
 
-$school = new School();
+// ✅ PROJECT ROOT (STRING, NOT OBJECT)
+require dirname(__DIR__) . '/app/vendor/autoload.php';
+$root = dirname(__DIR__);
 
-echo '<h1>Students Names</h1>';
-$school->DisplayNames(new Student());
+// ✅ SIMPLE ROUTER
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-echo '<h1>Teacher Names</h1>';
-$school->DisplayNames(new Teacher());
+$basePath = '/oop/msk/public';
+$path = str_replace($basePath, '', $uri);
 
-echo '<h1>Book Names</h1>';
-$school->DisplayNames(new Book());
+$routes = require dirname(__DIR__). '/routes/web.php';
 
-echo '<h1>Staff Names</h1>';
-$school->DisplayNames(new Staff());
+// execute route
+if (isset($routes[$path])) {
+    $routes[$path]();
+} else {
+    $routes['404']();
+    // echo '404 Not Found';
+}
 
+
+// if ($path === '/' || $path === '') {
+
+//     require $root . '/resources/views/home.php';
+
+// } elseif ($path === '/students') {
+
+//     $school = new School();
+//     echo '<h1>Students</h1>';
+//     $school->DisplayNames(new Student());
+
+// } elseif ($path === '/teachers') {
+
+//     $school = new School();
+//     echo '<h1>Teachers</h1>';
+//     $school->DisplayNames(new Teacher());
+
+// } else {
+
+//     echo '404 Not Found';
+// }
