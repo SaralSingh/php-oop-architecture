@@ -1,8 +1,8 @@
 <?php
 
 // ✅ PROJECT ROOT (STRING, NOT OBJECT)
-require dirname(__DIR__) . '/app/vendor/autoload.php';
-$root = dirname(__DIR__);
+require dirname(__DIR__) . '/vendor/autoload.php';
+
 
 // ✅ SIMPLE ROUTER
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

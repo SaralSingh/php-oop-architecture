@@ -1,11 +1,10 @@
 <?php
-$root = dirname(__DIR__);
+$root = dirname(__DIR__).'/app/';
 spl_autoload_register(function ($class) use ($root) {
     
     $paths = [
         $root . '/Contracts/',
         $root . '/Services/',
-        $root . '/DataProviders/',
         $root . '/Models/',
         $root . '/Controllers/',
     ];
